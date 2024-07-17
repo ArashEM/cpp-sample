@@ -13,7 +13,7 @@ TEST(SpeedTest, ZeroMeterPerSecond) {
     using namespace Details;
 
     // setup
-    Speed s{0_mps};
+    Speed s{0.0_mps};
 
     // verification
     EXPECT_EQ(s.mps(), 0.0f);
