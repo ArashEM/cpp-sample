@@ -10,10 +10,10 @@
 namespace Tests {
 
 TEST(SpeedTest, ZeroMeterPerSecond) {
-    using namespace Details;
+    using namespace Details::literals;
 
     // setup
-    Speed s{0.0_mps};
+    Details::Speed s{0.0_mps};
 
     // verification
     EXPECT_EQ(s.mps(), 0.0f);

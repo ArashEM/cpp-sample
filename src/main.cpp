@@ -15,11 +15,11 @@ int main(int argc, char* argv[])
     (void)argv;
 
     try {
-        using namespace Details;
+        using namespace Details::literals;
         using namespace std::rel_ops;
 
-        Speed d1{ 10.2_mps };
-        Speed d2{ 23.2_kmph };
+        Details::Speed d1{ 10.2_mps };
+        Details::Speed d2{ 23.2_kmph };
 
         std::cout << (d1 > d2) << '\n';
 

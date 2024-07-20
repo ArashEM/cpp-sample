@@ -16,24 +16,16 @@ enum class Types { Meter, KiloMeter, Mile };
  *
  */
 using Mps = StrongType<float, Types::Meter>;
-constexpr Mps operator""_mps(long double value)
-{
-    return Mps{ static_cast<float>(value) };
-}
 
 /**
  * @brief Kmph is strongly typed float which indicate "Kilo Meters Per hours"
  *
  */
 using Kmph = StrongType<float, Types::KiloMeter>;
-constexpr Kmph operator""_kmph(long double value)
-{
-    return Kmph{ static_cast<float>(value) };
-}
 
 /**
  * @brief Represent Speed of an object
- * 
+ *
  */
 class Speed
 {
@@ -53,5 +45,21 @@ public:
 private:
     float m_mps;
 };
+
+/**
+ * @brief limit visibility of literal operators
+ *
+ */
+namespace literals {
+constexpr Kmph operator""_kmph(long double value)
+{
+    return Kmph{ static_cast<float>(value) };
 }
+
+constexpr Mps operator""_mps(long double value)
+{
+    return Mps{ static_cast<float>(value) };
+}
+} // namespace literals
+} // namespace Details
 #endif // SPEED_H
