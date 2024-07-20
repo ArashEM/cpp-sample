@@ -7,6 +7,7 @@
 #include <utility>
 
 #include "speed.h"
+#include "perceptron.hpp"
 
 int main(int argc, char* argv[])
 {
@@ -16,11 +17,26 @@ int main(int argc, char* argv[])
     try {
         using namespace Details;
         using namespace std::rel_ops;
-        
+
         Speed d1{ 10.2_mps };
         Speed d2{ 23.2_kmph };
 
         std::cout << (d1 > d2) << '\n';
+
+        // clang-format off
+        nn::DataSet<3, 8> dataset{{
+            //  x1  x2  x3   y
+            { { 1,  0,  0 }, 0 },
+            { { 0,  1,  1 }, 0 },
+            { { 0,  0,  0 }, 0 },
+            { { 1,  1,  1 }, 0 },
+            { { 1,  0,  0 }, 0 },
+            { { 0,  1,  1 }, 0 },
+            { { 0,  0,  0 }, 0 },
+            { { 1,  1,  1 }, 1 }
+        }};
+        // clang-format on
+        nn::print(dataset);
 
     } catch (std::exception& e) {
         std::cerr << e.what();

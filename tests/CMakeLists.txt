@@ -28,7 +28,7 @@ target_compile_options(${TEST_TARGET} PRIVATE -pg)
 include(../cmake/googletest.cmake)
 include(GoogleTest)
 
-target_link_libraries(${PROJECT_NAME}_tst
+target_link_libraries(${TEST_TARGET}
     PRIVATE
     GTest::gtest_main
 )
